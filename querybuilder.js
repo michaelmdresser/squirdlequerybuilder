@@ -133,12 +133,16 @@ var makequery = () => {
     else if (genUpper < max) { queryStr += `gen<${genUpper} ` }
 
     if (height != null) { queryStr += `height:${height} ` }
-    else if (heightLower > 0) { queryStr += `height>${heightLower} ` }
-    else if (heightUpper < max) { queryStr += `height<${heightUpper} ` }
+    else {
+      if (heightLower > 0) { queryStr += `height>${heightLower} ` }
+      if (heightUpper < max) { queryStr += `height<${heightUpper} ` }
+    }
 
     if (weight != null) { queryStr += `weight:${weight} ` }
-    else if (weightLower > 0) { queryStr += `weight>${weightLower} ` }
-    else if (weightUpper < max) { queryStr += `weight<${weightUpper} ` }
+    else {
+      if (weightLower > 0) { queryStr += `weight>${weightLower} ` }
+      if (weightUpper < max) { queryStr += `weight<${weightUpper} ` }
+    }
 
     if (type1 != null) {
       queryStr += `type1:${type1} `
