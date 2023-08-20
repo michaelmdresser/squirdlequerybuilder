@@ -129,8 +129,10 @@ var makequery = () => {
     let queryStr = ""
 
     if (gen != null) { queryStr += `gen:${gen} ` }
-    else if (genLower > 0) { queryStr += `gen>${genLower} ` }
-    else if (genUpper < max) { queryStr += `gen<${genUpper} ` }
+    else {
+      if (genLower > 0) { queryStr += `gen>${genLower} ` }
+      if (genUpper < max) { queryStr += `gen<${genUpper} ` }
+    }
 
     if (height != null) { queryStr += `height:${height} ` }
     else {
